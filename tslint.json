@@ -1,5 +1,10 @@
 {
     "rules": {
+        "align": [
+          true,
+          "parameters",
+          "arguments"
+        ],
         "class-name": true,
         "comment-format": [
             true,
@@ -9,6 +14,9 @@
             true,
             "spaces"
         ],
+        "interface-name": true,
+        "jsdoc-format": true,
+        "max-line-length": 120,
         "no-duplicate-variable": true,
         "no-eval": true,
         "no-internal-module": true,
