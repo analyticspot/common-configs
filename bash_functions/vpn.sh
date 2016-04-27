@@ -9,5 +9,5 @@ vpn() {
       "Name=tag:aws:cloudformation:stack-name,Values=$VPC" | \
       jq -r '.Reservations[] | .Instances[] | .PublicIpAddress')
    echo "The bastion's IP address is: $bastion_ip"
-   sshuttle -r admin@$bastion_ip 10.0.0.0/16
+   sshuttle -r `whoami`@$bastion_ip 10.0.0.0/16
 }
