@@ -4,8 +4,8 @@
 # that generates a random name, spins up a debug container using that name and then, when you exit the 
 # attache container it cleans up the deployment and pod.
 kdbg() {
-   rand_name=$(date | shasum | cut -c1-5)
+   rand_name=debug-$(date | shasum | cut -c1-5)
    kubectl run $rand_name -i --tty --restart=Never --image=672129611065.dkr.ecr.us-west-2.amazonaws.com/debug:v3
-   kubectl delete deployment $rand_name
+   kubectl delete pod $rand_name
 }
 
