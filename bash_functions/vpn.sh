@@ -9,5 +9,6 @@ vpn() {
       "Name=tag:aws:cloudformation:stack-name,Values=$VPC" | \
       jq -r '.Reservations[] | .Instances[] | .PublicIpAddress')
    echo "The bastion's IP address is: $bastion_ip"
-   sshuttle -r `whoami`@$bastion_ip 10.0.0.0/16 10.1.0.0/16
+   # The 10.224 block is for Instaclustr Cassandra servers.
+   sshuttle -r `whoami`@$bastion_ip 10.0.0.0/16 10.1.0.0/16 10.224.0.0/16
 }
