@@ -10,5 +10,5 @@ vpn() {
       jq -r '.Reservations[] | .Instances[] | .PublicIpAddress')
    echo "The bastion's IP address is: $bastion_ip"
    # The 10.224 block is for Instaclustr Cassandra servers.
-   sshuttle -r `whoami`@$bastion_ip 10.0.0.0/16 10.1.0.0/16 10.224.0.0/16
+   sshuttle -r `whoami`@$bastion_ip 10.0.0.0/16 10.1.0.0/16 10.224.0.0/16 10.223.0.0/16
 }
